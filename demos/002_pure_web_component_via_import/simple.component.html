@@ -1,7 +1,11 @@
+<template id="simple_test">
+        <h1>Simple Test für Franky</h1>
+</template>
+
 <script>
     (function () {
-        const template = document.createElement('template');
-        template.innerHTML = `<h1>Simple Test</h1>`;
+        var importDoc = document.currentScript.ownerDocument;
+        const template = importDoc.getElementById("simple_test")
 
         class SimpleTestComponent extends HTMLElement {
             constructor() {
