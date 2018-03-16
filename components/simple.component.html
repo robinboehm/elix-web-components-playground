@@ -1,0 +1,16 @@
+<script>
+    (function () {
+        const template = document.createElement('template');
+        template.innerHTML = `<h1>Simple Test</h1>`;
+
+        class SimpleTestComponent extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+            }
+        }
+
+        window.customElements.define('robin-simple', SimpleTestComponent);
+    })()
+</script>
