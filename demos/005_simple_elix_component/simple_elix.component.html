@@ -1,0 +1,30 @@
+<script type="module" src="../../node_modules/elix/src/ListBox.js"></script>
+
+<template id="simple_test">
+        <h1>Simple Test mit ListBox für Franky</h1>
+        <elix-list-box>
+                <div>List Element 1</div>
+                <div>List Element 2</div>
+              </elix-list-box>
+</template>
+
+<script>
+    (function () {
+        var importDoc = document.currentScript.ownerDocument;
+        const template = importDoc.getElementById("simple_test")
+
+        class SimpleTestComponent extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+                const listBox = this.shadowRoot.querySelector('elix-list-box');
+                listBox.addEventListener('selected-index-changed', (e) => console.log(e))
+                console.log()
+            }
+        }
+
+        window.customElements.define('robin-elix-list', SimpleTestComponent);
+    })()
+</script>
